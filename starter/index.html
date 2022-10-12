@@ -20,11 +20,11 @@
 	<div id="app" class="app-without-sidebar">
 		<!-- BEGIN #content -->
 		<div id="content" class="app-content main-style">
-			<div class="">
-				<div>
+			<div class="row justify-content-between">
+				<div class="col-auto">
 					<ol class="breadcrumb">
 						<li class="breadcrumb-item active"><a href="javascript:;">Home</a></li>
-						<li class="breadcrumb-item active">Scrum Board </li>
+						<li class="breadcrumb-item active ">Scrum Board </li>
 					</ol>
 					<!-- BEGIN page-header -->
 					<h1 class="page-header">
@@ -33,14 +33,14 @@
 					<!-- END page-header -->
 				</div>
 				
-				<div class="">
-					<button class=""><i class=""></i> Add Task</a>
+				<div class="col-auto pt-5">
+					<button class="btn btn-primary"><i class="fa fa-plus"> </i> Add task
 				</div>
 			</div>
 			
-			<div class="">
+			<div class="row">
 				<div class="">
-					<div class="">
+					<div class="col-auto">
 						<div class="">
 							<h4 class="">To do (<span id="to-do-tasks-count">5</span>)</h4>
 
@@ -71,12 +71,13 @@
 									<div class="">Consider creating an acceptance criteria list</div>
 									<div class="">
 										<div class="">#2 created in 2022-10-08</div>
-										<div class="" title="Descriptive requirements are very helpful when it comes to understanding the context of a problem, yet finally it is good to precisely specify what is expected. Thus the developer will not have to look for the actual requirements in a long, descriptive text but he will be able to easily get to the essence. One might find that sometimes — when acceptance criteria are well defined — there is little or no need for any additional information. Example:
-						a) User navigates to “/accounts” and clicks on red download CSV button
-						b) Popup appears with two buttons: “This year” and “Last year”
-						c) If user clicked on “Last year” download is initiated
-						d) CSV downloaded includes following columns…">Descriptive requirements are very helpful when it comes...</div>
-									</div>
+											<div class="" title="Descriptive requirements are very helpful when it comes to understanding the context of a problem, yet finally it is good to precisely specify what is expected. Thus the developer will not have to look for the actual requirements in a long, descriptive text but he will be able to easily get to the essence. One might find that sometimes — when acceptance criteria are well defined — there is little or no need for any additional information. Example:
+																	a) User navigates to “/accounts” and clicks on red download CSV button
+																	b) Popup appears with two buttons: “This year” and “Last year”
+																	c) If user clicked on “Last year” download is initiated
+																	d) CSV downloaded includes following columns…">Descriptive requirements are very helpful when it comes...
+											</div>
+										</div>
 									<div class="">
 										<span class="">High</span>
 										<span class="">Feature</span>
@@ -135,7 +136,7 @@
 					</div>
 				</div>
 				<div class="">
-					<div class="">
+					<div class="col-auto">
 						<div class="">
 							<h4 class="">In Progress (<span id="in-progress-tasks-count">4</span>)</h4>
 
@@ -210,7 +211,7 @@
 					</div>
 				</div>
 				<div class="">
-					<div class="">
+					<div class="col-auto">
 						<div class="">
 							<h4 class="">Done (<span id="done-tasks-count">4</span>)</h4>
 
