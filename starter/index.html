@@ -13,6 +13,10 @@
 	<link href="assets/css/default/app.min.css" rel="stylesheet" />
 	<link href="assets/css/style.css" rel="stylesheet" />
 	<!-- ================== END core-css ================== -->
+	<!-- ================== BEGIN icon ================== -->
+	<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css"> -->
+	<!-- ================== END icon ================== -->
+
 </head>
 <body>
 
@@ -34,34 +38,37 @@
 				</div>
 				
 				<div class="col-auto pt-5">
-					<button class="btn btn-primary"><i class="fa fa-plus"> </i> Add task
+					<button class="btn rounded-pill btn-primary"><i class="fa fa-plus"> </i> Add task
 				</div>
 			</div>
 			
-			<div class="row">
-				<div class="col-4">
-					<div class="col-auto">
-						<div class="">
+			<div class="row  h-25">
+				<div class="col-auto bg-success p-2 align-content-between h-600px">
+					<div class="">
+						<div class="bg-danger-100">
 							<h4 class="">To do (<span id="to-do-tasks-count">5</span>)</h4>
 
 						</div>
-						<div class="" id="to-do-tasks">
+						<div class=" d-flex  flex-column" id="to-do-tasks">
 							<!-- TO DO TASKS HERE -->
-							<button class="">
-								<div class="">
-									<i class=""></i> 
-								</div>
-								<div class="">
-									<div class="">Keep all the updated requirements in one place</div>
-									<div class="">
-										<div class="">#1 created in 2022-10-08</div>
-										<div class="" title="There is hardly anything more frustrating than having to look for current requirements in tens of comments under the actual description or having to decide which commenter is actually authorized to change the requirements. The goal here is to keep all the up-to-date requirements and details in the main/primary description of a task. Even though the information in comments may affect initial criteria, just update this primary description accordingly.">There is hardly anything more frustrating than having t...</div>
+							<button class="d-flex  justify-content-between text-start mb-1 rounded-3 p-0 ">
+								
+									<div class="align-self-center">
+										<i class="fw fa-regular fa-circle-question "></i> 
+										
 									</div>
 									<div class="">
-										<span class="">High</span>
-										<span class="">Feature</span>
+										<div class="">Keep all the updated requirements in one place</div>
+										<div class="">
+											<div class="">#1 created in 2022-10-08</div>
+											<div class="" title="There is hardly anything more frustrating than having to look for current requirements in tens of comments under the actual description or having to decide which commenter is actually authorized to change the requirements. The goal here is to keep all the up-to-date requirements and details in the main/primary description of a task. Even though the information in comments may affect initial criteria, just update this primary description accordingly.">There is hardly anything more frustrating than having t...</div>
+										</div>
+										<div class="">
+											<span class="">High</span>
+											<span class="">Feature</span>
+										</div>
 									</div>
-								</div>
+								
 							</button>
 							<button class="">
 								<div class="">
