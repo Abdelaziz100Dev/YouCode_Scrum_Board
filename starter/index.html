@@ -46,12 +46,12 @@
 			
 			<div class="row justify-content-around mt-10px ">
 				<div class="col-lg-4 col-md-7 col-sm-7 col-12 pb-25px  fs-15px"    >
-					<div id="toDoParent" class="card shadow-lg">
+					<div  class="card shadow-lg">
 						<div class="text-center bg-black-100 rounded-top  ">
 							<h4 class="">To do (<span id="to-do-tasks-count">5</span>)</h4>
 
 						</div>
-						<div class=" card-body d-flex  flex-column" id="to-do-tasks">
+						<div  id="toDoparent" class=" card-body d-flex  flex-column" id="to-do-tasks">
 							<!-- TO DO TASKS HERE -->
 							<button class="d-flex  text-start mb-1  rounded-3 p-0 ">
 								
@@ -171,7 +171,7 @@
 	<div class="modal-dialog">
 	  <div class="modal-content">
 		<div class="modal-header">
-		  <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1>
+		  <h1 class="modal-title fs-5" id="staticBackdropLabel">create new Task</h1>
 		  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 		</div>
 		<div class="modal-body">
@@ -180,15 +180,15 @@
 		
 		<div class="mb-3">
 		  <label  class="form-label">Title</label>
-		  <input type="text" class="form-control" id="exampleFormControlInput1" >
+		  <input type="text" class="form-control" id="modaleTitle" >
 		</div>
 
 		<div class="mb-3">
 			<label for="exampleInputEmail1" class="form-label">type</label>
 			<div>
-				<input type="radio" class="ms-10px" name="radio_1"  > <span class="fw-700">Featur</span> 
+				<input type="radio" class="ms-10px" id="radio_1" name="radio_1" value="Feature" > <span class="fw-700">Feature</span> 
 				<br>
-				<input type="radio" class="ms-10px" name="radio_1" > <span class="fw-700">Bug</span> 
+				<input type="radio" class="ms-10px" id="radio_2" name="radio_1" value="Bug" > <span class="fw-700">Bug</span> 
 			</div>
 		  </div>
 
@@ -196,9 +196,9 @@
 			<label class="form-label">priority</label>
 			<select class="form-select">
 				<option selected>select dificulty</option>
-				<option value="1">One</option>
-				<option value="2">Two</option>
-				<option value="3">Three</option>
+				<option id="Low" value="Low">Low</option>
+				<option id="Miduim" value="Miduim">Miduim</option>
+				<option id="High" value="High">High</option>
 			  </select>
 		  </div>
 
@@ -206,15 +206,16 @@
 		  <label for="exampleInputPassword1" class="form-label">status</label>
 		  <select class="form-select">
 			<option selected>select status</option>
-			<option value="1">High</option>
-			<option value="2">Feature</option>
+			<option value="1">To Do</option>
+			<option value="2">In Progresse</option>
+			<option value="3">Done</option>
 		
 		  </select>
 		</div>
 		<div class="mb-3">
 			<label for="exampleInputPassword1" class="form-label">date</label>
 			<div>
-				<input type="date" class="col-12">
+				<input type="date" id="modaleDate" class="col-12">
 			</div>
 			
 
@@ -224,7 +225,7 @@
 		
 			<div class="mb-3">
 				<label for="exampleFormControlTextarea1" class="form-label">Descreption</label>
-				<textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+				<textarea class="form-control" id="modalTextArea" rows="3"></textarea>
 			  </div>
 		  
 
@@ -233,8 +234,8 @@
 		
 		</div>
 		<div class="modal-footer">
-		  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-		  <button id="addTask" type="button" class="btn btn-primary">Add Task</button>
+		  <button type="button"  class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+		  <button type="button"  data-bs-dismiss="modal" id="add_task" class="btn btn-primary">Add Task</button>
 		</div>
   <!--end of Modal body -->
 
@@ -247,6 +248,6 @@
 	<script src="assets/js/app.min.js"></script>
 	<script src="/starter/assets/js/index.js"></script>
 	<!-- ================== END core-js ================== -->
-
+	
 </body>
 </html>
