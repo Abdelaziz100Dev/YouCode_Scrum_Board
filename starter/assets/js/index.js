@@ -1,3 +1,6 @@
+
+
+console.log(tasks[0].title);
 // une fonction qui reteurn html element
 
 var getId = (id) => {
@@ -57,5 +60,29 @@ add_task.onclick = function () {
 </button>`;
 
   toDoParent.innerHTML += button;
+  let array = {
+    title: "",
+    tasckId: "",
+    date: "",
+    descreption: "",
+    priority: "",
+    type: "",
+  };
+  array.title = title;
+  array.tasckId = tasckId;
+  array.date = date;
+  array.descreption = descreption;
+  array.priority = priority;
+  array.type = type;
+
+  console.log(
+    array.title,
+    array.tasckId,
+    array.date,
+    array.descreption,
+    array.priority,
+    array.type
+  );
+
 
 };
