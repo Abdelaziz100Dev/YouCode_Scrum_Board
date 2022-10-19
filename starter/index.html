@@ -40,7 +40,7 @@
 				</div>
 				
 				<div class="col-auto pt-5">
-					<button  data-bs-toggle="modal" id="Add_task" data-bs-target="#staticBackdrop" class="btn rounded-pill btn-primary"><i class="fa fa-plus"> </i> Add task
+					<button  data-bs-toggle="modal" onclick="initTaskForm()" id="Add_task" data-bs-target="#staticBackdrop" class="btn rounded-pill btn-primary"><i class="fa fa-plus"> </i> Add task
 				</div>
 			</div>
 			
@@ -132,7 +132,7 @@
 
 		  <div class="mb-3">
 			<label class="form-label">priority</label>
-			<select class="form-select">
+			<select  id="prioriyOption" class="form-select">
 				<option selected>select dificulty</option>
 				<option id="Low" value="Low">Low</option>
 				<option id="Miduim" value="Miduim">Miduim</option>
@@ -142,10 +142,10 @@
 
 		<div class="mb-3">
 		  <label for="exampleInputPassword1" class="form-label">status</label>
-		  <select class="form-select">
+		  <select id="StatusOptions" class="form-select">
 			<option  selected>select status</option>
 			<option id="To-Do" value="To Do">To Do</option>
-			<option id="in-progres" value="In Progresse">In Progresse</option>
+			<option id="in-progres" value="In Progress">In Progress</option>
 			<option id="Done" value="Done">Done</option>
 		
 		  </select>
@@ -173,13 +173,18 @@
 		</div>
 		<div id="modal_footer" class="modal-footer">
 		  <button type="button"  class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-		  <button type="button"  data-bs-dismiss="modal" id="save_task" class="btn btn-primary">Add Task</button>
+		  <button type="button"  onclick="initTaskForm()" data-bs-dismiss="modal" id="save_task" class="btn btn-primary">save Task</button>
 		</div>
   <!--end of Modal body -->
 
 	  </div>
 	</div>
   </div>
+  <!--end of Modal_1 -->
+ 
+   <!--end of Modal -->
+   
+
 	
 	<!-- ================== BEGIN core-js ================== -->
 	<script src="assets/js/vendor.min.js"></script>

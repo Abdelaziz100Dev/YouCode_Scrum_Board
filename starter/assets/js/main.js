@@ -9,15 +9,15 @@ reloadTasks();
 
 // function  add task
 
-Add_task.onclick = function(){
-  initTaskForm();
+// Add_task.onclick = function(){
+//   initTaskForm();
+//   alert('hello');
 
-}
+// }
 
 
 
 save_task.onclick = function () {
-  let buttonId = 0;
   saveTask();
 
 };

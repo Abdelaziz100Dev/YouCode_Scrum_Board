@@ -92,38 +92,40 @@ function deleteTask() {
   // refresh tasks
   reloadTasks() 
 }
+function clearSelected(idoption){
+  var elements = document.getElementById(idoption).options;
 
+  for(var i = 0; i < elements.length; i++){
+    elements[i].selected = false;
+  }
+}
 function initTaskForm() {
   // Clear task form from data
+
   modaleTitle.value = "";
   radio_1.checked = false;
   radio_2.checked = false;
-
-
-  // Hide all action buttons
- // modal_footer.style.display = 'none';
-  
-}
-function hh(id){
-    console.log(id)
-    alert(id)
+  modaleDate.value = "";
+  modalTextArea.value ="";
+  clearSelected("prioriyOption"); 
+  clearSelected("StatusOptions"); 
+  // Hide all action buttons 
 }
 
 function reloadTasks() {
   // Remove tasks elements
   toDo_tasks.innerHTML = "";
-  done_tasks.innerHTML += "";
+  done_tasks.innerHTML = "";
 
-  toDo_tasks.innerHTML = "";
+  in_progress_tasks.innerHTML = "";
  
 
   // Set Task count
-  let buttonId = 0;
   for (let i of tasks) {
     if (i.status == "To Do") {
         let str = i.description.substr(0, 40);
 
-      let button = `<button class="d-flex  text-start mb-1  rounded-3 p-0 ">
+      let button = `<button    data-bs-toggle="modal"  data-bs-target="#staticBackdrop_2"   class="d-flex  text-start mb-1  rounded-3 p-0 ">
 
   <div class="icon">
       <i class="  fs-25px text-danger-900 p-5px fa-regular fa-circle-question "></i> 
@@ -144,7 +146,6 @@ function reloadTasks() {
 </button>`;
 
 toDo_tasks.innerHTML += button;
-      ++buttonId;
     }
     if (i.status == "In Progress") {
         let str = i.description.substr(0, 40);
@@ -170,7 +171,6 @@ toDo_tasks.innerHTML += button;
 </button>`;
 
       in_progress_tasks.innerHTML += button;
-      ++buttonId;
     }
     if (i.status == "Done") {
         let str = i.description.substr(0, 40);
@@ -196,7 +196,6 @@ toDo_tasks.innerHTML += button;
   </button>`;
   
   done_tasks.innerHTML += button;
-        ++buttonId;
       }
   }
 }
