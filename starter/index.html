@@ -40,7 +40,7 @@
 				</div>
 				
 				<div class="col-auto pt-5">
-					<button  data-bs-toggle="modal" onclick="initTaskForm()" id="Add_task" data-bs-target="#staticBackdrop" class="btn rounded-pill btn-primary"><i class="fa fa-plus"> </i> Add task
+					<button  onclick="displayButtonSave()"   data-bs-toggle="modal" onclick="initTaskForm()" id="Add_task" data-bs-target="#staticBackdrop" class="btn rounded-pill btn-primary" ><i class="fa fa-plus"> </i> Add task
 				</div>
 			</div>
 			
@@ -48,7 +48,7 @@
 				<div class="col-lg-4 col-md-7 col-sm-7 col-12 pb-25px  fs-15px"    >
 					<div  class="card shadow-lg">
 						<div class="text-center bg-black-100 rounded-top  ">
-							<h4 class="">To do (<span id="to-do-tasks-count">5</span>)</h4>
+							<h4 class="">To do (<span id="to-do-tasks-count"></span>)</h4>
 
 						</div>
 						<div  class=" card-body d-flex flex-column" id="toDo_tasks">
@@ -105,7 +105,7 @@
 
   
   <!-- Modal -->
-  <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <form class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
 	<div class="modal-dialog">
 	  <div class="modal-content">
 		<div class="modal-header">
@@ -133,7 +133,7 @@
 		  <div class="mb-3">
 			<label class="form-label">priority</label>
 			<select  id="prioriyOption" class="form-select">
-				<option selected>select dificulty</option>
+				
 				<option id="Low" value="Low">Low</option>
 				<option id="Miduim" value="Miduim">Miduim</option>
 				<option id="High" value="High">High</option>
@@ -143,9 +143,9 @@
 		<div class="mb-3">
 		  <label for="exampleInputPassword1" class="form-label">status</label>
 		  <select id="StatusOptions" class="form-select">
-			<option  selected>select status</option>
-			<option id="To-Do" value="To Do">To Do</option>
-			<option id="in-progres" value="In Progress">In Progress</option>
+			
+			<option id="in-progres" value="In Progress" >In Progress</option>
+			<option id="To-Do" value="To Do" >To Do</option>
 			<option id="Done" value="Done">Done</option>
 		
 		  </select>
@@ -173,13 +173,14 @@
 		</div>
 		<div id="modal_footer" class="modal-footer">
 		  <button type="button"  class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-		  <button type="button"  onclick="initTaskForm()" data-bs-dismiss="modal" id="save_task" class="btn btn-primary">save Task</button>
+		  <button type="button"  onclick="initTaskForm()" data-bs-dismiss="modal" id="save_task" class="btn btn-primary" style="display:none ;">save Task</button>
+		  <button type="button"  onclick="updateTask()" data-bs-dismiss="modal" id="update_task" class="btn bg-success  btn-primary" style="display:none ;">update</button>
 		</div>
   <!--end of Modal body -->
 
 	  </div>
 	</div>
-  </div>
+  </form>
   <!--end of Modal_1 -->
  
    <!--end of Modal -->
