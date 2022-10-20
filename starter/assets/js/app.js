@@ -14,6 +14,8 @@ function createTask() {
   // Afficher le boutton save
   // Ouvrir modal form
 }
+
+
 let objectId = 18; 
 function saveTask() {
 
@@ -202,6 +204,9 @@ function reloadTasks() {
 
   // Set Task count
   let index = 0;
+  let count_Done = undefined;
+  let count_in_progress = undefined;
+  let count_to_do = undefined;
   for (let i of tasks) {
     if (i.status == "To Do") {
         let str = i.description.substr(0, 40);
@@ -232,6 +237,7 @@ function reloadTasks() {
 
 toDo_tasks.innerHTML += button;
 index ++;
+++count_to_do;
     }
     if (i.status == "In Progress") {
         let str = i.description.substr(0, 40);
@@ -262,6 +268,7 @@ index ++;
 
       in_progress_tasks.innerHTML += button;
       index ++;
+      count_in_progress ++;
     }
     if (i.status == "Done") {
         let str = i.description.substr(0, 40);
@@ -290,6 +297,13 @@ index ++;
   </button>`;
   done_tasks.innerHTML += button;
   index ++;
+  count_Done ++;
       }
   }
+  $("#to-do-tasks-count").each(function(count_to_do){
+    let num = count_to_do ;
+    $(this).text(num);
+  });
+  console.log(count_to_do);
+
 }
