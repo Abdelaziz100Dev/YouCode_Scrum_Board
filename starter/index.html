@@ -30,7 +30,7 @@
 				<div class="col-auto">
 					<ol class="breadcrumb">
 						<li class="breadcrumb-item active"><a href="javascript:;">Home</a></li>
-						<li class="breadcrumb-item active ">Scrum Board </li>
+						<li class="breadcrumb-item active ">Scrum Board</li>
 					</ol>
 					<!-- BEGIN page-header -->
 					<h1 class="page-header">
@@ -40,7 +40,7 @@
 				</div>
 				
 				<div class="col-auto pt-5">
-					<button  data-bs-toggle="modal" data-bs-target="#staticBackdrop" class="btn rounded-pill btn-primary"><i class="fa fa-plus"> </i> Add task
+					<button  onclick="displayButtonSave()"   data-bs-toggle="modal" onclick="initTaskForm()" id="Add_task" data-bs-target="#staticBackdrop" class="btn rounded-pill btn-primary" ><i class="fa fa-plus"> </i> Add task
 				</div>
 			</div>
 			
@@ -48,30 +48,12 @@
 				<div class="col-lg-4 col-md-7 col-sm-7 col-12 pb-25px  fs-15px"    >
 					<div  class="card shadow-lg">
 						<div class="text-center bg-black-100 rounded-top  ">
-							<h4 class="">To do (<span id="to-do-tasks-count">5</span>)</h4>
+							<h4 class="">To do (<span id="to-do-tasks-count"></span>)</h4>
 
 						</div>
-						<div  id="toDoparent" class=" card-body d-flex  flex-column" id="to-do-tasks">
+						<div  class=" card-body d-flex flex-column" id="toDo_tasks">
 							<!-- TO DO TASKS HERE -->
-							<button class="d-flex  text-start mb-1  rounded-3 p-0 ">
-								
-									<div class="">
-										<i class="  fs-25px text-danger-900 p-5px fa-regular fa-circle-question "></i> 
-										
-									</div>
-									<div class="">
-										<div class="fw-800">Keep all the updated requirements in one place</div>
-										<div class="">
-											<div class="fw-100">#1 created in 2022-10-08</div>
-											<div class="fw-600" title="There is hardly anything more frustrating than having to look for current requirements in tens of comments under the actual description or having to decide which commenter is actually authorized to change the requirements. The goal here is to keep all the up-to-date requirements and details in the main/primary description of a task. Even though the information in comments may affect initial criteria, just update this primary description accordingly.">There is hardly anything more frustrating than having t...</div>
-										</div>
-										<div class="">
-											<span class="btn btn-primary fs-10px py-3px m-1 fw-800 rounded-pill ">High</span>
-											<span class="btn btn-secondary fs-10px py-3px m-1 fw-800 rounded-pill ">Feature</span>
-										</div>
-									</div>
-								
-							</button>
+		
 				
 	
 						</div>
@@ -83,40 +65,10 @@
 							<h4 class="">In Progress (<span id="in-progress-tasks-count">4</span>)</h4>
 
 						</div>
-						<div class="card-body d-flex  flex-column" id="in-progress-tasks">
+						<div class="card-body d-flex  flex-column" id="in_progress_tasks">
 							<!-- IN PROGRESS TASKS HERE -->
-							<button class="d-flex  text-start mb-1  rounded-3 p-0 ">
-								<div class="">
-									<i class="m-1 text-danger-100  fs-30px spinner-border"></i> 
-								</div>
-								<div class="">
-									<div class="fw-800">Describe steps to reproduce an issue</div>
-									<div class="">
-										<div class="fw-100">#6 created in 2022-10-08</div>
-										<div class="fw-600" title="including as many details as possible.">including as many details as possible.</div>
-									</div>
-									<div class="">
-										<span class="btn btn-primary fs-10px py-3px m-1 fw-800 rounded-pill ">High</span>
-										<span class="btn btn-secondary fs-10px py-3px m-1 fw-800 rounded-pill ">Bug</span>
-									</div>
-								</div>
-							</button>
-							<button   button class="d-flex  text-start mb-1  rounded-3 p-0 ">
-								<div class="">
-									<i class="m-1 text-danger-100 fs-30px spinner-border"></i> 
-								</div>
-								<div class="">
-									<div class="fw-800">Provide access</div>
-									<div class="">
-										<div class="fw-100">#7 created in 2022-10-08</div>
-										<div class="fw-600" title="to the affected account and services if possible. It might be hard to reproduce the exact environment on a local machine.">to the affected account and services if possible. It mi...</div>
-									</div>
-									<div class="">
-										<span class="btn btn-primary fs-10px py-3px m-1 fw-800 rounded-pill ">High</span>
-										<span class="btn btn-secondary fs-10px py-3px m-1 fw-800 rounded-pill ">Bug</span>
-									</div>
-								</div>
-							</button>
+				
+						
 
 
 						</div>
@@ -128,23 +80,9 @@
 							<h4 class="">Done (<span id="done-tasks-count">4</span>)</h4>
 
 						</div>
-						<div class="card-body d-flex  flex-column " id="done-tasks">
+						<div class="card-body d-flex  flex-column " id="done_tasks">
 							<!-- DONE TASKS HERE -->
-							<button class="d-flex   text-start mb-1 rounded-3 p-0 ">
-								<div class="">
-									<i class="fas fs-25px fa-chevron-circle-down fa-1x text-success p-2"></i>								</div>
-								<div class="">
-									<div class="fw-800">Provide access to logs</div>
-									<div class="">
-										<div class="fw-100">#10 created in 2022-10-08</div>
-										<div class="fw-600" title="as they can be helpful in reproducing the steps that caused the problem in the first place.">as they can be helpful in reproducing the steps that ca...</div>
-									</div>
-									<div class="">
-										<span class="btn btn-primary fs-10px py-3px m-1 fw-800 rounded-pill ">High</span>
-										<span class="btn btn-secondary fs-10px py-3px m-1 fw-800 rounded-pill ">Bug</span>
-									</div>
-								</div>
-							</button>
+					
 
 						</div>
 					</div>
@@ -167,7 +105,7 @@
 
   
   <!-- Modal -->
-  <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <form class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
 	<div class="modal-dialog">
 	  <div class="modal-content">
 		<div class="modal-header">
@@ -194,8 +132,8 @@
 
 		  <div class="mb-3">
 			<label class="form-label">priority</label>
-			<select class="form-select">
-				<option selected>select dificulty</option>
+			<select  id="prioriyOption" class="form-select">
+				
 				<option id="Low" value="Low">Low</option>
 				<option id="Miduim" value="Miduim">Miduim</option>
 				<option id="High" value="High">High</option>
@@ -204,11 +142,11 @@
 
 		<div class="mb-3">
 		  <label for="exampleInputPassword1" class="form-label">status</label>
-		  <select class="form-select">
-			<option selected>select status</option>
-			<option value="1">To Do</option>
-			<option value="2">In Progresse</option>
-			<option value="3">Done</option>
+		  <select id="StatusOptions" class="form-select">
+			
+			<option id="in-progres" value="In Progress" >In Progress</option>
+			<option id="To-Do" value="To Do" >To Do</option>
+			<option id="Done" value="Done">Done</option>
 		
 		  </select>
 		</div>
@@ -233,20 +171,28 @@
 
 		
 		</div>
-		<div class="modal-footer">
+		<div id="modal_footer" class="modal-footer">
 		  <button type="button"  class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-		  <button type="button"  data-bs-dismiss="modal" id="add_task" class="btn btn-primary">Add Task</button>
+		  <button type="button"  onclick="initTaskForm()" data-bs-dismiss="modal" id="save_task" class="btn btn-primary" style="display:none ;">save Task</button>
+		  <button type="button"  onclick="updateTask()" data-bs-dismiss="modal" id="update_task" class="btn bg-success  btn-primary" style="display:none ;">update</button>
 		</div>
   <!--end of Modal body -->
 
 	  </div>
 	</div>
-  </div>
+  </form>
+  <!--end of Modal_1 -->
+ 
+   <!--end of Modal -->
+   
+
 	
 	<!-- ================== BEGIN core-js ================== -->
 	<script src="assets/js/vendor.min.js"></script>
 	<script src="assets/js/app.min.js"></script>
-	<script src="/starter/assets/js/index.js"></script>
+	<script src="/starter/assets/js/data.js"></script>
+	<script src="/starter/assets/js/app.js"></script>
+	<script src="/starter/assets/js/main.js"></script>
 	<!-- ================== END core-js ================== -->
 	
 </body>
