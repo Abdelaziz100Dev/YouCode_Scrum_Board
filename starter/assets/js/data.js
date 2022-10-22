@@ -161,4 +161,5 @@ var tasks = [
         'date'          :   '2022-10-08',
         'description'   :   `of the person that reported the bug. This will not always be possible, but in some cases it might be advantageous and most effective if a developer can have a chat with a person that actually experienced the bug, especially if the steps to reproduce a problem are not deterministic.`,
     },
+    
 ];
