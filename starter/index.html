@@ -16,10 +16,6 @@
 	<!-- ================== BEGIN icon ================== -->
 	<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css"> -->
 	<!-- ================== END icon ================== -->
-	
-
-	   
-
 </head>
 <body>
 
@@ -42,7 +38,7 @@
 				</div>
 				
 				<div class="col-auto pt-5">
-					<button  onclick="displayButtonSave()"   data-bs-toggle="modal" onclick="initTaskForm()" id="Add_task" data-bs-target="#staticBackdrop" class="btn rounded-pill btn-primary" ><i class="fa fa-plus"> </i> Add task
+					<button  onclick=" initTaskForm(); displayButtonSave()"   data-bs-toggle="modal" id="Add_task" data-bs-target="#staticBackdrop" class="btn rounded-pill btn-primary" ><i class="fa fa-plus"> </i> Add task
 				</div>
 			</div>
 			
@@ -123,7 +119,7 @@ p>
 		
 		<div class="mb-3">
 		  <label  class="form-label">Title</label>
-		  <input type="text" class="form-control" id="modaleTitle" >
+		  <input type="text" class="form-control" id="modaleTitle" required>
 		</div>
 
 		<div class="mb-3">
@@ -148,9 +144,9 @@ p>
 		<div class="mb-3">
 		  <label for="exampleInputPassword1" class="form-label">status</label>
 		  <select id="StatusOptions" class="form-select">
-			
-			<option id="in-progres" value="In Progress" >In Progress</option>
 			<option id="To-Do" value="To Do" >To Do</option>
+			<option id="in-progres" value="In Progress" >In Progress</option>
+			
 			<option id="Done" value="Done">Done</option>
 		
 		  </select>
@@ -178,7 +174,7 @@ p>
 		</div>
 		<div id="modal_footer" class="modal-footer">
 		  <button type="button"  class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-		  <button type="button"  onclick="initTaskForm()" data-bs-dismiss="modal" id="save_task" class="btn btn-primary" style="display:none ;">save Task</button>
+		  <button type="submit"  onclick=" saveTask() ;  " data-bs-dismiss="modal" id="save_task" class="btn btn-primary" style="display:none ;">save Task</button>
 		  <button type="button"  onclick="updateTask()" data-bs-dismiss="modal" id="update_task" class="btn bg-success  btn-primary" style="display:none ;">update</button>
 		</div>
   <!--end of Modal body -->

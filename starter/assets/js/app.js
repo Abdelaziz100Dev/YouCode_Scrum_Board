@@ -2,7 +2,8 @@
  * In this file app.js you will find all CRUD functions name.
  *
  */
-let clickedIdex = undefined;
+
+let clickedIdex = 0;
 var getId = (id) => {
   return document.getElementById(id);
 };
@@ -67,6 +68,7 @@ function saveTask() {
 }
 function displayButtonSave() {
   // Afficher le boutton save
+  
   update_task.style.display = "none";
 
   save_task.style.display = "block";
@@ -83,6 +85,8 @@ function editTask(index) {
   // Initialisez task form
 
   clickedIdex = index;
+  console.table(tasks);
+  console.log(index);
 
   if (tasks[clickedIdex].type == "Feature") {
     radio_2.checked = false;
@@ -112,7 +116,6 @@ function editTask(index) {
   // }
 
   // Affichez updates
-  reloadTasks();
   // Delete Button
   // Définir l’index en entrée cachée pour l’utiliser en Update et Delete
   // Definir FORM INPUTS
@@ -130,21 +133,26 @@ function updateTask() {
   } else if (radio_1.checked == false) {
     type = "Bug";
   }
+  tasks[clickedIdex].title = modaleTitle.value; 
+  tasks[clickedIdex].date = modaleDate.value;
+  tasks[clickedIdex].description = modalTextArea.value;
+  tasks[clickedIdex].type = type;
+  tasks[clickedIdex].priority = prioriyOption.value;
+  tasks[clickedIdex].status = StatusOptions.value;
+  // for (let i of tasks) {
+  //   if (i.id - 1 == clickedIdex) {
+  //     console.log(i);
 
-  for (let i of tasks) {
-    if (i.id - 1 == clickedIdex) {
-      console.log(i);
-
-      i.title = modaleTitle.value;
-      i.date = modaleDate.value;
-      i.description = modalTextArea.value;
-      i.type = type;
-      i.priority = prioriyOption.value;
-      i.status = StatusOptions.value;
-      console.log(i);
-    }
-    reloadTasks();
-  }
+  //     i.title = modaleTitle.value;
+  //     i.date = modaleDate.value;
+  //     i.description = modalTextArea.value;
+  //     i.type = type;
+  //     i.priority = prioriyOption.value;
+  //     i.status = StatusOptions.value;
+  //     console.log(i);
+  //   }
+  // }
+  reloadTasks();
 
   // Créez task object
   // Remplacer ancienne task par nouvelle task
@@ -154,11 +162,14 @@ function updateTask() {
 
 function deleteTask(index) {
   // Get index of task in the array
+  clickedIdex = index;
+
   tasks.splice(index, 1);
   // Remove task from array by index splice function
   // close modal form
   // refresh tasks
   reloadTasks();
+  console.table(tasks);
 }
 function clearSelected(idoption) {
   var elements = document.getElementById(idoption).options;
@@ -335,6 +346,7 @@ function display_done(n) {
     $(this).text(n);
   });
 }
+reloadTasks();
 
 
 

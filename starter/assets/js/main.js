@@ -5,7 +5,7 @@
 // start
 
 
-reloadTasks();
+
 
 // function  add task
 
@@ -17,7 +17,7 @@ reloadTasks();
 
 
 
-save_task.onclick = function () {
-  saveTask();
+// save_task.onclick = function () {
+//   saveTask();
 
-};
+// };
