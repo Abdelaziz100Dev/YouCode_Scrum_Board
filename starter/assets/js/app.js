@@ -10,11 +10,7 @@ var getId = (id) => {
 
 let toDo_tasks = getId("toDo_tasks");
 
-function createTask() {
-  // initialiser task form
-  // Afficher le boutton save
-  // Ouvrir modal form
-}
+
 
 let objectId = 18;
 function saveTask() {
@@ -46,7 +42,6 @@ function saveTask() {
     status = getId("Done").value;
   }
   // Créez task object
-  //creation d object
 
   let objectButton = {
     id: objectId++,
@@ -59,7 +54,6 @@ function saveTask() {
   };
 
   // Ajoutez object au Array
-  // push object to array
 
   tasks.push(objectButton);
 
@@ -68,7 +62,7 @@ function saveTask() {
 }
 function displayButtonSave() {
   // Afficher le boutton save
-  
+
   update_task.style.display = "none";
 
   save_task.style.display = "block";
@@ -82,7 +76,6 @@ function displayButtonUpdate() {
 }
 
 function editTask(index) {
-  // Initialisez task form
 
   clickedIdex = index;
   console.table(tasks);
@@ -96,30 +89,12 @@ function editTask(index) {
     radio_1.checked = false;
   }
 
-
-
   modaleTitle.value = tasks[index].title;
   prioriyOption.value = tasks[index].priority;
   StatusOptions.value = tasks[index].status;
   modaleDate.value = tasks[index].date;
   modalTextArea.value = tasks[index].description;
 
-  // let objetupdate = {
-
-  //     id : index ,
-  //     title: modaleTitle.value,
-  //     date: modaleDate.value,
-  //     description: modalTextArea.value,
-  //     priority: prioriyOption.value,
-  //     type: type,
-  //     status:  StatusOptions.value,
-  // }
-
-  // Affichez updates
-  // Delete Button
-  // Définir l’index en entrée cachée pour l’utiliser en Update et Delete
-  // Definir FORM INPUTS
-  // Ouvrir Modal form
 }
 
 function updateTask() {
@@ -133,41 +108,28 @@ function updateTask() {
   } else if (radio_1.checked == false) {
     type = "Bug";
   }
-  tasks[clickedIdex].title = modaleTitle.value; 
+  tasks[clickedIdex].title = modaleTitle.value;
   tasks[clickedIdex].date = modaleDate.value;
   tasks[clickedIdex].description = modalTextArea.value;
   tasks[clickedIdex].type = type;
   tasks[clickedIdex].priority = prioriyOption.value;
   tasks[clickedIdex].status = StatusOptions.value;
-  // for (let i of tasks) {
-  //   if (i.id - 1 == clickedIdex) {
-  //     console.log(i);
 
-  //     i.title = modaleTitle.value;
-  //     i.date = modaleDate.value;
-  //     i.description = modalTextArea.value;
-  //     i.type = type;
-  //     i.priority = prioriyOption.value;
-  //     i.status = StatusOptions.value;
-  //     console.log(i);
-  //   }
-  // }
   reloadTasks();
 
-  // Créez task object
-  // Remplacer ancienne task par nouvelle task
-  // Fermer Modal form
-  // Refresh tasks
+
+}
+let deleteindex;
+function marckdeleteIndex(index){
+  deleteindex = index ;
+
 }
 
-function deleteTask(index) {
-  // Get index of task in the array
-  clickedIdex = index;
+function deleteTask() {
+  clickedIdex = deleteindex;
 
-  tasks.splice(index, 1);
-  // Remove task from array by index splice function
-  // close modal form
-  // refresh tasks
+  tasks.splice(deleteindex, 1);
+
   reloadTasks();
   console.table(tasks);
 }
@@ -181,30 +143,41 @@ function clearSelected(idoption) {
 function initTaskForm() {
   // Clear task form from data
   staticBackdrop.reset();
-
 }
 // dragge and drop
-function start(e){
-  e.dataTransfer.effectAllowed ="move";
-  e.dataTransfer.setData("text" ,e.target.getAttribute("id"));
-  }
-  function over(e){  
+function start(e) {
+  e.dataTransfer.effectAllowed = "move";
+  e.dataTransfer.setData("text", e.target.getAttribute("id"));
+}
+function over(e) {
   return false;
-  }
-  function drop(e){
-  ob=e.dataTransfer.getData("text");
+}
+function drop(e) {
+  ob = e.dataTransfer.getData("text");
+
   e.currentTarget.appendChild(document.getElementById(ob));
-  e.stopPropagation();
+
+  if(e.currentTarget.getAttribute('id')== 'in_progress_tasks'){
+    tasks[ob-1].status = 'In Progress' ;
+  }else if(e.currentTarget.getAttribute('id')== 'done_tasks'){
+    tasks[ob-1].status = 'Done' ;
+  }else if (e.currentTarget.getAttribute('id')== 'toDo_tasks') {
+    tasks[ob-1].status = 'To Do' ;
+    
   }
+  
+  
+  e.stopPropagation();
+  reloadTasks();
+}
+
+
 function reloadTasks() {
   // Remove tasks elements
   toDo_tasks.innerHTML = "";
   done_tasks.innerHTML = "";
 
   in_progress_tasks.innerHTML = "";
-// drag and drop tasks
-
-
 
   // Set Task count
   let index = 0;
@@ -244,9 +217,9 @@ function reloadTasks() {
             <div class=" mx-4 d-inline-block   ">
 
 
-                <i class="  fa fa-edit "  data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="displayButtonUpdate(); editTask(${index})" style="color: green;"></i>
+                <i class=" mx-3 fs-19px   fa fa-edit  "   data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="displayButtonUpdate(); editTask(${index})" style="color: green; "  ></i>
 
-                <i class="fa  fa-trash "  onclick="deleteTask(${index}) " style="color: green;"> </i>
+                <i class=" fs-19px fa  fa-trash  " data-bs-toggle="modal"  data-bs-target="#staticBackdrop_2" onclick="marckdeleteIndex(${index}) "  style="color: red;" > </i>
               </div>
         
            </div>
@@ -279,10 +252,10 @@ function reloadTasks() {
       
         <div class=" mx-4 d-inline-block  ">
 
-      
-        <i class="  fa fa-edit "  data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="displayButtonUpdate(); editTask(${index})" style="color: green;"></i>
+        <i class=" mx-3 fs-19px   fa fa-edit  "   data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="displayButtonUpdate(); editTask(${index})" style="color: green; "  ></i>
 
-        <i class="fa  fa-trash "  onclick="deleteTask(${index}) " style="color: green;"> </i>
+        <i class=" fs-19px fa  fa-trash  " data-bs-toggle="modal"  data-bs-target="#staticBackdrop_2" onclick="marckdeleteIndex(${index}) "  style="color: red;" > </i>
+
         </div>
     </div>
     </div>
@@ -313,10 +286,10 @@ function reloadTasks() {
               <span class="btn btn-secondary fs-10px py-3px m-1 fw-800 rounded-pill ">${i.type}</span>
        
           <div class=" mx-4 d-inline-block  ">
-                <i class="  fa fa-edit "  data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="displayButtonUpdate(); editTask(${index})" style="color: green;"></i>
+          <i class=" mx-3 fs-19px   fa fa-edit  "   data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="displayButtonUpdate(); editTask(${index})" style="color: green; "  ></i>
 
-                <i class="fa  fa-trash "  onclick="deleteTask(${index}) " style="color: green;"> </i>
-                </div>
+          <i class=" fs-19px fa  fa-trash  " data-bs-toggle="modal"  data-bs-target="#staticBackdrop_2" onclick="marckdeleteIndex(${index}) "  style="color: red;" > </i>
+        </div>
       </div>
       </div>
   </button>`;
@@ -348,8 +321,4 @@ function display_done(n) {
 }
 reloadTasks();
 
-
-
-
-////
 
