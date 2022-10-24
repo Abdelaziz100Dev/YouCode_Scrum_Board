@@ -15,7 +15,7 @@ let toDo_tasks = getId("toDo_tasks");
 let objectId = 18;
 function saveTask() {
   // Recuperer task attributes a partir les champs input
-
+event.preventDefault();
   // type
   let type = undefined;
   if (getId("radio_1").checked) {
@@ -23,6 +23,7 @@ function saveTask() {
   } else if (getId("radio_2").checked) {
     type = getId("radio_2").value;
   }
+  
   //priority
   let priority = undefined;
   if (getId("High").selected) {
@@ -131,7 +132,7 @@ function deleteTask() {
   tasks.splice(deleteindex, 1);
 
   reloadTasks();
-  console.table(tasks);
+
 }
 function clearSelected(idoption) {
   var elements = document.getElementById(idoption).options;

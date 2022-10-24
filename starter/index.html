@@ -22,6 +22,8 @@
 	
 
 	
+        
+
 	<!-- BEGIN #app -->
 	<div id="app" class="app-without-sidebar">
 		<!-- BEGIN #content -->
@@ -115,12 +117,12 @@
   <!-- Modal body -->
 		
 		<div class="mb-3">
-		  <label  class="form-label">Title</label>
-		  <input type="text" class="form-control" id="modaleTitle" required>
+		  <label  class="form-label" for="modaleTitle" >Title</label>
+		  <input type="text" class="form-control"  name="modaleTitle" id="modaleTitle" required>
 		</div>
 
 		<div class="mb-3">
-			<label for="exampleInputEmail1" class="form-label">type</label>
+			<label  class="form-label">type</label>
 			<div>
 				<input type="radio" class="ms-10px" id="radio_1" name="radio_1" value="Feature" > <span class="fw-700">Feature</span> 
 				<br>
@@ -149,9 +151,9 @@
 		  </select>
 		</div>
 		<div class="mb-3">
-			<label for="exampleInputPassword1" class="form-label">date</label>
+			<label for="modaleDate" class="form-label">date</label>
 			<div>
-				<input type="date" id="modaleDate" class="col-12">
+				<input type="date" id="modaleDate" name="modaleDate" class="col-12">
 			</div>
 			
 
@@ -160,8 +162,8 @@
 
 		
 			<div class="mb-3">
-				<label for="exampleFormControlTextarea1" class="form-label">Descreption</label>
-				<textarea class="form-control" id="modalTextArea" rows="3"></textarea>
+				<label for="modalTextArea" class="form-label">Description</label>
+				<textarea class="form-control" id="modalTextArea" name="modalTextArea" rows="3"></textarea>
 			  </div>
 		  
 
